@@ -1,0 +1,426 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ol, ul {
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+/*********************************/
+/* Root */
+/*********************************/
+:root {
+    --achtergrond-kleur: #FAFAF7;
+    --efteling-rood: #b71234;
+    --header-wit: #fff;
+    --efteling-bruin: #4d3928;
+    --tekst-kleur: #4d3928;
+    --border-kleur: #ede5d5;
+    --check-kleur: #70A489;
+    --grijs: #a59d95;
+}
+
+/*********************************/
+/* Algemenen CSS */
+/*********************************/
+body {
+    background: var(--achtergrond-kleur);
+}
+
+h1 {
+    font-family: rosalinda, sans-serif;
+    color: var(--header-wit);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, .6);
+    font-size: 2.5em;
+    text-align: center;
+    line-height: 1.2em;
+}
+
+h2 {
+    font-family: bodoni-egyptian-pro, serif;
+    color: var(--efteling-rood);
+    font-size: 1em;
+}
+
+h3 {
+    font-family: bodoni-egyptian-pro, serif;
+    color: var(--tekst-kleur);
+    font-size: 1em;
+}
+
+h4 {
+    font-family: bodoni-egyptian-pro, serif;
+    color: var(--tekst-kleur);
+    font-size: 1em;
+}
+
+p {
+    font-family: open-sans, sans-serif;
+    color: var(--tekst-kleur);
+    font-size: 0.8em;
+}
+
+a {
+    font-family: bodoni-egyptian-pro, serif;
+    text-decoration: none;
+    color: var(--header-wit);
+    font-size: 16px;
+    border: 2px solid var(--header-wit);
+    border-radius: 5px;
+    padding: 5px;
+    align-self: center;
+    width: 200px;
+    position: absolute;
+}
+
+/*********************************/
+/* Resat van de padding en margin */
+/*********************************/
+header nav {
+    padding: 0;
+    margin: 0; 
+    border: none;
+}
+
+header nav ul {
+    margin: 0; 
+    padding: 0; 
+}
+
+header nav ul li {
+    margin: 0; 
+    padding: 0;
+}
+
+.opening {
+    margin: 0; 
+    padding: 0;
+}
+
+/* Header */
+/*********************************/
+header nav {
+    height: 55px; 
+    position: fixed;
+    width: 100%;
+    top: 0; 
+    left: 0; 
+    padding: 0;
+    margin: 0;
+    border: none;
+    z-index: 1000; 
+}
+
+header nav ul {
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+    position: fixed;
+    display: flex;
+    align-items: center; 
+    gap: 1em;
+    margin: 0;
+    padding: 0 1em;
+    list-style: none;
+}
+
+header nav ul li:nth-child(1) {
+    margin-right: auto;
+    border: none;
+}
+
+header nav ul li {
+    font-family: open-sans, sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 55px;
+    color: var(--efteling-bruin);
+    display: flex;
+    align-items: center;
+}
+
+header nav ul li:nth-child(1) img {
+    width: 100px;
+    height: auto;
+    display: block;
+}
+
+header nav ul li:nth-child(2) img {
+    width: 25px;
+    height: 25px;
+    display: block;
+}
+
+header nav ul li:nth-child(3) {
+    display: flex; 
+    align-items: center; 
+    gap: 0.5em;
+}
+
+header nav ul li:nth-child(3) img {
+    width: 25px;
+    height: 25px;
+    display: block;
+}
+
+article {
+    width: 100%;
+    height: 295px;
+    background: url(../img/vakantie-header.jpg);
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.5);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 55px; 
+    box-sizing: border-box; 
+}
+
+header h1 {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+header ul {
+    font-family: bodoni-egyptian-pro, serif;
+    font-size: 1em;
+    font-weight: 700;
+    list-style: none;
+    width: 80%;
+    background: var(--header-wit);
+    border: 1px solid var(--border-kleur);
+    border-radius: 5px;
+    margin: auto;
+    margin-top: -30px;
+}
+
+header ul li {
+    padding: 15px 30px 15px 20px; /* Boven, Rechts, Onder, Links */
+}
+
+header ul li:first-child {
+    border-bottom: 1px solid var(--border-kleur);
+}
+
+header ul li {
+    color: var(--efteling-rood);
+    border: none;
+}
+
+.opening {
+    width: 80%;
+    height: 80px;
+    background: var(--header-wit);
+    border: 1px solid var(--border-kleur);
+    border-radius: 5px;
+    box-shadow: none;
+    margin: auto;
+    padding-left: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.opening p {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/*********************************/
+/* Main */
+/*********************************/
+.overnachten, .blog-post {
+    padding: 0;
+}
+
+.overnachten div {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    height: 225px;
+}
+
+.overnachten div ul {
+    border: none;
+    width: 300px;
+    list-style: none;
+    margin-top: 10px;
+}
+
+.overnachten div ul li {
+    font-family: open-sans, sans-serif;
+    font-size: 0.8em;
+    color: var(--tekst-kleur);
+}
+
+.overnachten div ul li::before {
+    content: url(../img/checkmark-green.svg); 
+    display: inline-block;
+    width: 15px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.overnachten div a {
+    background-color: var(--efteling-rood);
+    border-radius: 5px;
+    border: 6px double var(--efteling-bruin);
+    color: var(--header-wit);
+    font-size: 0.9em;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.overnachten, .blog-post {
+    width: 350px;
+    height: auto;
+    background: var(--header-wit);
+    border: 1px solid var(--border-kleur);
+    box-shadow: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin: auto;
+}
+
+section .blog-post {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.blog-post div {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    height: 175px;
+}
+
+.blog-post div a {
+    background-color: var(--header-wit);
+    border-radius: 5px;
+    border: 6px double var(--border-kleur);
+    color: var(--efteling-rood);
+    font-size: 0.9em;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.plattegrond {
+    width: 100%;
+    height: 550px;
+    background: url(../img/plattegrond.jpg);
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.5);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.plattegrond h2 {
+    font-family: rosalinda, sans-serif;
+    font-size: 2em;
+    color: var(--header-wit);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, .6);
+    text-align: center;
+    line-height: 1.5em;
+}
+
+.plattegrond a {
+    background-color: var(--efteling-rood);
+    border: 1px solid rgb(155, 15, 44);
+    align-self: center;
+}
+
+/* Standaard styling van de blog artikelen */
+.blog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centreert de slider-container horizontaal */
+    align-items: center; /* Centreert de slider-container verticaal */
+    overflow: hidden; /* Verbergt de inhoud die buiten de container valt */
+}
+
+.blog h2 {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.blog a {
+    background-color: var(--efteling-rood);
+    border-radius: 5px;
+    border: 6px double var(--efteling-bruin);
+    color: var(--header-wit);
+    font-size: 0.9em;
+    margin-top: 430px;
+    text-align: center;
+}
+
+.blog article {
+    width: 230px;
+    background: var(--header-wit);
+    box-shadow: none;
+    border: 1px solid var(--border-kleur);
+    border-radius: 5px;
+    margin-right: 20px;
+    flex-shrink: 0; /* Zorgt ervoor dat de artikelen niet krimpen */
+}
+
+.blog h3 {
+    font-family: open-sans, sans-serif;
+    color: var(--efteling-rood);
+    text-transform: uppercase;
+}
+
+.blog p {
+    font-family: bodoni-egyptian-pro, serif;
+    color: var(--grijs);
+}
+
+.blog-inhoud {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+}
+
+/* Slider container styling */
+.slider-container {
+    display: flex;
+    overflow: hidden; /* Verbergt de artikelen die buiten de container vallen */
+    width: calc(230px * 1.5 + 20px); /* Zorgt ervoor dat er 1,5 artikel zichtbaar is */
+    cursor: grab; /* Geef de slider een hand-icoon als de gebruiker erover hovert */
+}
+
+/* Actieve status tijdens slepen */
+.slider-container:active {
+    cursor: grabbing; /* Verander de cursor tijdens het slepen */
+}
+
+/*********************************/
+/* Footer */
+/*********************************/
+footer {
+    background: var(--header-wit);
+    /* padding-left: 10%; */
+    margin-top: 100px;
+    border-top: 1px solid var(--border-kleur);
+    border-bottom: 1px solid var(--border-kleur);
+}
+
+footer p:nth-child(1) {
+    padding-top: 5%;
+}
+
+footer p:nth-child(2) {
+    text-decoration: underline;
+    cursor: pointer;
+    padding-bottom: 5%;
+    border-bottom: 1px solid var(--border-kleur);
+}
+
