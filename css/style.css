@@ -25,6 +25,9 @@ img {
     --border-kleur: #ede5d5;
     --check-kleur: #70A489;
     --grijs: #a59d95;
+    --tweede-borderkleur: #9b0f2c;
+    --blog-oranje: #d2492a;
+    --dark-mode-1: #3d3d3d;
 }
 
 /*********************************/
@@ -76,8 +79,12 @@ a {
     border-radius: 5px;
     padding: 5px;
     align-self: center;
-    width: 200px;
-    position: absolute;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    display: flex;
+    justify-content: space-around;
 }
 
 /*********************************/
@@ -136,6 +143,10 @@ header nav ul li:nth-child(1) {
     border: none;
 }
 
+header nav ul li:nth-child(2) {
+    cursor: pointer;
+}
+
 header nav ul li {
     font-family: open-sans, sans-serif;
     font-size: 1em;
@@ -153,10 +164,11 @@ header nav ul li:nth-child(1) img {
     display: block;
 }
 
-header nav ul li:nth-child(2) img {
+header nav ul li svg{
     width: 25px;
     height: 25px;
     display: block;
+    fill: var(--tekst-kleur);
 }
 
 header nav ul li:nth-child(3) {
@@ -165,15 +177,110 @@ header nav ul li:nth-child(3) {
     gap: 0.5em;
 }
 
-header nav ul li:nth-child(3) img {
-    width: 25px;
-    height: 25px;
+/* POP-UP MENU */
+.menu-toggle {
+    cursor: pointer;
+}
+
+/* Verborgen popup menu */
+.popup-menu {
+    background: var(--header-wit);
+    display: none; /* Verborgen standaard */
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 55px;
+    z-index: 1001;
+}
+
+.tickets {
+    background: var(--achtergrond-kleur);
+    padding: 2em;
+}
+
+.tickets a {
+    background: var(--efteling-rood);
+    border: 6px double var(--tweede-borderkleur);
+    width: 120px;
+    height: 40px;
+    padding: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-menu h2 {
+    font-size: 1.2em;
+    color: var(--tekst-kleur);
+    border: 1px solid var(--border-kleur);
+    padding-left: 1em;
+    padding-top: 1.5em;
+    padding-bottom: 1em;
+}
+
+.popup-menu details {
+    font-family: open-sans, sans-serif;
+    color: var(--tekst-kleur);
+    font-size: 0.85em;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-kleur);
+    padding-top: 1em;
+    padding-bottom: 1em;
+    cursor: pointer;
+}
+
+.popup-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+.popup-menu details ul li a {
+    font-family: open-sans, sans-serif;
+    font-weight: 500;
+    color: var(--tekst-kleur);
+    font-size: 1em;
+    border: none;
+}
+
+.popup-menu details ul li {
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+}
+
+.popup-menu details ul li:nth-child(1) {
+    border: none;
+}
+
+.links {
+    display: flex;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.links a {
+    font-family: open-sans, sans-serif;
+    font-size: 0.8em;
+    border: none;
+    color: var(--tekst-kleur);
+    text-decoration: underline;
+}
+
+/* Toon popup-menu wanneer het de active class heeft */
+.popup-menu.active {
     display: block;
+}
+
+/* Actieve state voor de menu knop */
+.menu-toggle.active svg.menu-icon {
+    fill: var(--tekst-kleur); /* Vul de kleur indien gewenst */
 }
 
 article {
     width: 100%;
-    height: 295px;
+    height: 350px;
     background: url(../img/vakantie-header.jpg);
     box-shadow: inset 0 0 0 1000px rgba(0,0,0,.5);
     background-size: cover;
@@ -184,6 +291,17 @@ article {
     padding-top: 55px; 
     box-sizing: border-box; 
 }
+
+article a {
+    margin-top: 30px;
+}
+
+article a svg {
+    width: 25px;
+    height: 25px;
+    fill: var(--header-wit);
+}
+
 
 header h1 {
     margin-left: 1em;
@@ -205,6 +323,14 @@ header ul {
 
 header ul li {
     padding: 15px 30px 15px 20px; /* Boven, Rechts, Onder, Links */
+    display: flex;
+    justify-content: space-between;
+}
+
+header ul li svg {
+    width: 25px;
+    height: 25px;
+    fill: var(--efteling-rood);
 }
 
 header ul li:first-child {
@@ -272,11 +398,12 @@ header ul li {
 .overnachten div a {
     background-color: var(--efteling-rood);
     border-radius: 5px;
-    border: 6px double var(--efteling-bruin);
+    border: 6px double var(--tweede-borderkleur);
     color: var(--header-wit);
     font-size: 0.9em;
     margin-top: 25px;
     text-align: center;
+    position: absolute;
 }
 
 .overnachten, .blog-post {
@@ -310,6 +437,7 @@ section .blog-post {
     font-size: 0.9em;
     margin-top: 25px;
     text-align: center;
+    position: absolute;
 }
 
 .plattegrond {
@@ -334,8 +462,12 @@ section .blog-post {
 
 .plattegrond a {
     background-color: var(--efteling-rood);
-    border: 1px solid rgb(155, 15, 44);
+    border: 6px double var(--tweede-borderkleur);
     align-self: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
 }
 
 /* Standaard styling van de blog artikelen */
@@ -355,11 +487,18 @@ section .blog-post {
 .blog a {
     background-color: var(--efteling-rood);
     border-radius: 5px;
-    border: 6px double var(--efteling-bruin);
+    border: 6px double var(--tweede-borderkleur);
     color: var(--header-wit);
     font-size: 0.9em;
-    margin-top: 430px;
-    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.blog a svg {
+    width: 25px;
+    height: 25px;
+    fill: var(--header-wit);
 }
 
 .blog article {
@@ -392,9 +531,15 @@ section .blog-post {
 /* Slider container styling */
 .slider-container {
     display: flex;
-    overflow: hidden; /* Verbergt de artikelen die buiten de container vallen */
+    overflow-x: scroll; /* Horizontaal scrollen mogelijk maken */
+    scroll-behavior: smooth;
     width: calc(230px * 1.5 + 20px); /* Zorgt ervoor dat er 1,5 artikel zichtbaar is */
     cursor: grab; /* Geef de slider een hand-icoon als de gebruiker erover hovert */
+    scrollbar-width: none; /* Verberg de standaard scrollbar voor Firefox */
+}
+
+.slider-container::-webkit-scrollbar {
+    display: none; /* Verberg de scrollbar voor Chrome, Safari en Opera */
 }
 
 /* Actieve status tijdens slepen */
@@ -402,29 +547,400 @@ section .blog-post {
     cursor: grabbing; /* Verander de cursor tijdens het slepen */
 }
 
+
 /*********************************/
 /* Footer */
 /*********************************/
 footer {
     background: var(--header-wit);
-    /* padding-left: 10%; */
     margin-top: 100px;
     border-top: 1px solid var(--border-kleur);
     border-bottom: 1px solid var(--border-kleur);
 }
 
-footer p:nth-child(1) {
-    padding-top: 5%;
+footer div {
+    display: flex;
+    padding-top: 1em;
+    padding-left: 1.5em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid var(--border-kleur);
+    min-width: 100%;
 }
 
-footer p:nth-child(2) {
+footer svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 1em;
+    fill: var(--efteling-bruin);
+}
+
+.link-footer {
+    border: none;
+    position: static;
+    color: var(--tekst-kleur);
+    padding: 0;
+    font-family: open-sans, sans-serif;
+    font-size: 1em;
     text-decoration: underline;
-    cursor: pointer;
-    padding-bottom: 5%;
-    border-bottom: 1px solid var(--border-kleur);
 }
 
 footer details {
     font-family: open-sans, sans-serif;
     cursor: pointer;
+    font-weight: 700;
+    border-bottom: 1px solid var(--border-kleur);
+    padding-top: 1em;
+    padding-left: 1.5em;
+    padding-bottom: 1em;
 }
+
+footer details ul {
+    list-style: none;
+}
+
+footer details ul li {
+    font-weight: 400;
+    font-size: 0.8em;
+    padding-top: 0.5em;
+}
+
+footer details p {
+    font-weight: 400;
+    font-size: 0.8em;
+    padding-right: 1.5em;
+}
+
+footer details form {
+    display: flex;
+    flex-direction: column;
+    padding-right: 1.5em;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+}
+
+footer details form label {
+    display: none;
+}
+
+footer details form input {
+    padding: 1em;
+    border-radius: 5px;
+    border: 1px solid var(--grijs);
+}
+
+footer details form button {
+    width: 150px;
+    background-color: var(--efteling-rood);
+    border-radius: 5px;
+    border: 6px double var(--tweede-borderkleur);
+    color: var(--header-wit);
+    font-size: 0.9em;
+    font-family: bodoni-egyptian-pro, serif;
+    text-align: center;
+    padding: 0.5em;
+    margin-top: 1em;
+    cursor: pointer;
+}
+
+footer section h2 {
+    display: none;
+}
+
+.app {
+    border: none;
+    display: flex;
+    justify-content: center;
+} 
+
+.app img{
+    width: 10em;
+}
+
+.app img:nth-child(1) {
+    padding-right: 1em;
+}
+
+.footer-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 1em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-bottom: 1em;
+    border-top: 1px solid var(--border-kleur);
+}
+
+.footer-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-menu ul li {
+    color: var(--tekst-kleur);
+    font-family: open-sans, sans-serif;
+    font-size: 0.8em;
+    padding-top: 1em;
+}
+
+.footer-menu ul li a {
+    color: var(--tekst-kleur);
+    border: none;
+    position: static;
+    font-family: open-sans, sans-serif;
+    font-size: 0.8em;
+}
+
+/*********************************/
+/* Blog pagina */
+/*********************************/
+.header-blog {
+    background-image: url(../img/header.png);
+    box-shadow: none;
+    background-size: cover;
+    background-repeat: no-repeat;   
+}
+
+.header-blog a {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.blog-main-inhoud {
+    width: 90%;
+    background: var(--header-wit);
+    box-shadow: 10px 5px 5px -6px rgba(0,0,0,0.14);
+    margin: auto;
+    margin-top: -3em;
+    border-radius: 5px;
+}
+
+.blog-main-inhoud h2:nth-child(1) {
+    font-family: open-sans, sans-serif;
+    color: var(--blog-oranje);
+    text-transform: uppercase;
+    padding-top: 2em;
+    text-align: center;
+}
+
+.blog-main-inhoud h2:nth-child(2) {
+    text-align: center;
+    font-size: 1.2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.blog-main-inhoud article {
+    background: none;
+    box-shadow: none;
+    width: auto;
+    height: auto;
+    padding-left: 1em;
+    margin-right: 1em;
+}
+
+.blog-main-inhoud  p {
+    font-family: bodoni-egyptian-pro, serif;
+    text-align: center;
+    color: var(--grijs);
+    font-size: 1em;
+}
+
+.blog-main-inhoud article p {
+    color: var(--tekst-kleur);
+    text-align: start;
+    padding-bottom: 1em;
+}
+
+.foto {
+    position: relative;
+}
+
+.loop {
+    width: 35px;
+    height: 35px;
+    background: var(--efteling-rood);
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.loop svg {
+    width: 30px;
+    height: 30px;
+    fill: var(--header-wit);
+}
+
+.blog-main-inhoud article p:nth-child(3) {
+    font-family: open-sans, sans-serif;
+    color: var(--tekst-kleur);
+    text-align: start;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    font-size: 0.8em;
+}
+
+.blog-main-inhoud article h2 {
+    color: var(--tekst-kleur);
+    font-size: 1.4em;
+}
+
+.blog-main-inhoud article p:nth-child(5) {
+    font-family: open-sans, sans-serif;
+    color: var(--tekst-kleur);
+    text-align: start;
+    font-size: 0.8em;
+}
+
+.blog-main-inhoud article h2:nth-child(7) {
+    color: var(--tekst-kleur);
+    font-size: 1.4em;
+    margin-top: 1em;
+}
+
+.blog-main-inhoud article p:nth-child(8) {
+    font-family: open-sans, sans-serif;
+    color: var(--tekst-kleur);
+    text-align: start;
+    font-size: 0.8em;
+}
+
+.blog-socials article {
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-main-inhoud .blog-socials h2{
+    color: var(--tekst-kleur);
+    font-size: 0.8em;
+    font-family: bodoni-egyptian-pro, serif;
+    text-align: start;
+    text-transform: none;
+}
+
+.blog-main-inhoud .blog-socials ul{
+    list-style: none;
+    display: flex;
+}
+
+.blog-main-inhoud .blog-socials svg{
+    fill: var(--efteling-rood);
+    font-size: 0.2em;
+    margin: 0;
+    padding: 0;
+}
+
+.blog-main-inhoud .blog-footer h2 {
+    color: var(--tekst-kleur);
+    font-size: 0.8em;
+    text-align: start;
+    text-transform: none;
+}
+
+.blog-main-inhoud .blog-footer p {
+    color: var(--tekst-kleur);
+    font-size: 0.8em;
+    font-family: open-sans, sans-serif;
+    padding-top: 1em;
+}
+
+.lees-meer {
+    margin: 0;
+    padding: 0;
+}
+
+.lees-meer {
+    width: 90%;
+    height: 250px;
+    margin: auto;
+    background: var(--blog-oranje);
+    box-shadow: none;
+    border: 3px double var(--tekst-kleur);
+    border-radius: 5px;
+    padding-left: 1em
+}
+
+.lees-meer h2 {
+    color: var(--header-wit);
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+.lees-meer ul {
+    text-align: start;
+    margin: 0;
+    padding: 0;
+}
+
+.lees-meer ul li a {
+    font-family: open-sans, sans-serif;
+    text-decoration: underline;
+    border: none;
+}
+
+.bekijk-meer {
+    width: 90%;
+    margin: auto;
+    background: none;
+    box-shadow: none;
+    margin-top: 30px;
+}
+
+.bekijk-meer h2 {
+    font-size: 1.5em;
+    font-weight: 400;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.bekijk-meer a {
+    color: var(--efteling-rood);
+    background: var(--header-wit);
+    border: 6px double var(--border-kleur);
+    align-items: start;
+}
+
+.bekijk-meer svg {
+    fill: var(--efteling-rood);
+}
+
+/*********************************/
+/* Surface plane */
+/*********************************/
+/* Dark mode */
+body.dark-mode {
+    background: var(--dark-mode-1);
+}
+
+/* Andere elementen in dark mode */
+nav ul li {
+    color: black;
+}
+
+body.dark-mode nav ul {
+    background: var(--dark-mode-1);
+}
+
+body.dark-mode nav ul li {
+    color: var(--achtergrond-kleur);
+    fill: var(--achtergrond-kleur);
+}
+
+body.dark-mode nav ul li svg {
+    fill: var(--achtergrond-kleur);
+}
+
+/* Scrol animatie */
+/* Verborgen standaard */
+.blog-post {
+    opacity: 0;
+    transform: translateY(30px); /* Startpositie iets naar beneden */
+    transition: all 0.8s ease-out;
+}
+
+/* Wanneer zichtbaar in beeld */
+.blog-post.show {
+    opacity: 1;
+    transform: translateY(0); /* Terug naar originele positie */
+}
+
