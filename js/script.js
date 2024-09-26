@@ -1,6 +1,5 @@
 console.log("Hallo Wereld");
 
-
 // Menu
 document.addEventListener('DOMContentLoaded', function () {
     const menuToggle = document.querySelector('.menu-toggle');
@@ -45,37 +44,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Carusel
-const slider = document.querySelector('.slider-container');
-let isDown = false;
-let startX;
-let scrollLeft;
-
-slider.addEventListener('mousedown', (e) => {
-    isDown = true;
-    slider.classList.add('active');
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
-});
-
-slider.addEventListener('mouseleave', () => {
-    isDown = false;
-    slider.classList.remove('active');
-});
-
-slider.addEventListener('mouseup', () => {
-    isDown = false;
-    slider.classList.remove('active');
-});
-
-slider.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 2; // De hoeveelheid om te scrollen
-    slider.scrollLeft = scrollLeft - walk;
-});
-
 // Dark Mode
 document.addEventListener('DOMContentLoaded', function () {
     const darkModeToggle = document.querySelector('nav ul li:nth-child(2)'); // Selecteer de tweede li
@@ -99,32 +67,36 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Scrol animatie
-document.addEventListener('DOMContentLoaded', function () {
-    // Selecteer alle elementen met de class 'blog-post'
-    const blogPosts = document.querySelectorAll('.blog-post');
 
-    // Opties voor de IntersectionObserver
-    const options = {
-        threshold: 0.5, // 50% van het element moet in beeld zijn voordat de animatie start
-    };
+// Geluid
+// Selecteer het derde li-element
+const thirdListItem = document.getElementById('play-sound');
 
-    // Functie die wordt aangeroepen wanneer een element in beeld komt
-    const onIntersect = (entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-                observer.unobserve(entry.target); // Stop met observeren nadat het element zichtbaar is geworden
-            }
-        });
-    };
+// Maak een nieuw audio-element aan
+const audio = new Audio('audio/sprookjesbos.mp3');
 
-    // Maak een nieuwe IntersectionObserver aan
-    const observer = new IntersectionObserver(onIntersect, options);
+// Voeg een klik-event toe aan het derde li-element
+thirdListItem.addEventListener('click', function() {
+    // Controleer of het nummer speelt (audio is niet gepauzeerd en de huidige tijd is groter dan 0)
+    if (!audio.paused && audio.currentTime > 0) {
+        audio.pause();  // Pauzeer het nummer
+        audio.currentTime = 0;  // Zet het terug naar het begin
+    } else {
+        audio.play();  // Speel het nummer af
+    }
+});
 
-    // Observeer elke 'blog-post'
-    blogPosts.forEach(post => {
-        observer.observe(post);
+// BlingBling
+// Selecteer het vierde li-element
+const fireworksTrigger = document.getElementById('fireworks-trigger');
+
+// Voeg een klik-event toe voor het vuurwerk-effect
+fireworksTrigger.addEventListener('click', function() {
+    // Gebruik canvas-confetti voor een vuurwerk-effect
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
     });
 });
 

@@ -147,6 +147,14 @@ header nav ul li:nth-child(2) {
     cursor: pointer;
 }
 
+header nav ul li:nth-child(3) {
+    cursor: pointer;
+}
+
+header nav ul li:nth-child(4) {
+    cursor: pointer;
+}
+
 header nav ul li {
     font-family: open-sans, sans-serif;
     font-size: 1em;
@@ -185,12 +193,13 @@ header nav ul li:nth-child(3) {
 /* Verborgen popup menu */
 .popup-menu {
     background: var(--header-wit);
-    display: none; /* Verborgen standaard */
+    transform: translateX(100%);
     position: absolute;
     width: 100%;
     height: auto;
     top: 55px;
     z-index: 1001;
+    transition: all 500ms ease;
 }
 
 .tickets {
@@ -270,7 +279,7 @@ header nav ul li:nth-child(3) {
 
 /* Toon popup-menu wanneer het de active class heeft */
 .popup-menu.active {
-    display: block;
+    transform: translateX(0);
 }
 
 /* Actieve state voor de menu knop */
@@ -503,12 +512,15 @@ section .blog-post {
 
 .blog article {
     width: 230px;
+    height: 275px;
     background: var(--header-wit);
     box-shadow: none;
     border: 1px solid var(--border-kleur);
     border-radius: 5px;
     margin-right: 20px;
     flex-shrink: 0; /* Zorgt ervoor dat de artikelen niet krimpen */
+    padding-top: 0;
+    display: block;
 }
 
 .blog h3 {
@@ -893,11 +905,16 @@ footer section h2 {
     padding-bottom: 0.5em;
 }
 
+.bekijk-meer hr {
+    border: 1px solid var(--border-kleur);
+    margin-bottom: 0.5em;
+    width: 100px;
+}
+
 .bekijk-meer a {
     color: var(--efteling-rood);
     background: var(--header-wit);
     border: 6px double var(--border-kleur);
-    align-items: start;
 }
 
 .bekijk-meer svg {
@@ -926,6 +943,10 @@ body.dark-mode nav ul li {
     fill: var(--achtergrond-kleur);
 }
 
+body.dark-mode nav ul li img {
+    filter: grayscale(100%) brightness(1000%);
+}
+
 body.dark-mode nav ul li svg {
     fill: var(--achtergrond-kleur);
 }
@@ -944,3 +965,20 @@ body.dark-mode nav ul li svg {
     transform: translateY(0); /* Terug naar originele positie */
 }
 
+
+/* Animatie h1 */
+h1 {
+    animation: omhoog 2s ease 0s 1 normal forwards;
+}
+
+@keyframes omhoog {
+	0% {
+		opacity: 0;
+		transform: translateY(50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

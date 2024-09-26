@@ -227,6 +227,7 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
   1. https://www.svgrepo.com/collection/nilicons-rounded-interface-icons/
   2. https://jakearchibald.github.io/svgomg/
-  3. ...
+  3. https://www.jsdelivr.com/?query=firewor
+  4. https://phosphoricons.com/?q=%22%22
 
 </details>
