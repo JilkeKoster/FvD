@@ -27,7 +27,9 @@ img {
     --grijs: #a59d95;
     --tweede-borderkleur: #9b0f2c;
     --blog-oranje: #d2492a;
-    --dark-mode-1: #3d3d3d;
+    --dark-mode-1: #121212;
+    --dark-mode-2: #2B2B2B;
+    --dark-mode-3: #FFD700;
 }
 
 /*********************************/
@@ -35,6 +37,7 @@ img {
 /*********************************/
 body {
     background: var(--achtergrond-kleur);
+    overflow-x: hidden;
 }
 
 h1 {
@@ -570,13 +573,16 @@ footer {
     border-bottom: 1px solid var(--border-kleur);
 }
 
+footer a {
+    display: block;
+}
+
 footer div {
     display: flex;
     padding-top: 1em;
     padding-left: 1.5em;
     padding-bottom: 1em;
     border-bottom: 1px solid var(--border-kleur);
-    min-width: 100%;
 }
 
 footer svg {
@@ -670,6 +676,58 @@ footer section h2 {
 
 .app img:nth-child(1) {
     padding-right: 1em;
+}
+
+.socials {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+}
+
+.socials-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--grijs); 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.socials-icon svg {
+    width: 50%;
+    height: auto;
+    fill: var(--header-wit);
+    margin: auto;
+}
+
+.socials-icon:nth-child(1):hover {
+    background: #1877F2;
+}
+
+.socials-icon:nth-child(2):hover {
+    background: #1DA1F2;
+}
+
+.socials-icon:nth-child(3):hover {
+    background: #DD2A7B;
+}
+
+.socials-icon:nth-child(4):hover {
+    background: #FF0000;
+}
+
+.socials-icon:nth-child(5):hover {
+    background: #010101;
+}
+
+.socials-icon:nth-child(6):hover {
+    background: #0A66C2;
 }
 
 .footer-menu {
@@ -817,9 +875,13 @@ footer section h2 {
     font-size: 0.8em;
 }
 
-.blog-socials article {
+article.blog-socials {
     display: flex;
-    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 1em;
 }
 
 .blog-main-inhoud .blog-socials h2{
@@ -830,16 +892,21 @@ footer section h2 {
     text-transform: none;
 }
 
-.blog-main-inhoud .blog-socials ul{
+.blog-socials ul{
     list-style: none;
     display: flex;
+    padding-top: 20px;
 }
 
-.blog-main-inhoud .blog-socials svg{
+.blog-socials svg{
     fill: var(--efteling-rood);
-    font-size: 0.2em;
-    margin: 0;
-    padding: 0;
+    margin-left: 0.5em;
+    cursor: pointer;
+}
+
+.blog-main-inhoud .blog-footer {
+    margin-top: -10%;
+    padding-bottom: 1em;
 }
 
 .blog-main-inhoud .blog-footer h2 {
@@ -863,13 +930,16 @@ footer section h2 {
 
 .lees-meer {
     width: 90%;
-    height: 250px;
+    height: auto;
     margin: auto;
     background: var(--blog-oranje);
     box-shadow: none;
-    border: 3px double var(--tekst-kleur);
+    border: 6px double var(--tweede-borderkleur);
     border-radius: 5px;
-    padding-left: 1em
+    padding-left: 1em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    margin-top: 2em;
 }
 
 .lees-meer h2 {
@@ -881,13 +951,22 @@ footer section h2 {
 .lees-meer ul {
     text-align: start;
     margin: 0;
-    padding: 0;
+    padding-left: 1em;
+    color: var(--header-wit);
+    padding-top: 1em;
+}
+
+.lees-meer ul li {
+    padding-bottom: 0.5em;
 }
 
 .lees-meer ul li a {
     font-family: open-sans, sans-serif;
     text-decoration: underline;
     border: none;
+    display: block;
+    padding: 0;
+    margin: 0;
 }
 
 .bekijk-meer {
@@ -895,7 +974,7 @@ footer section h2 {
     margin: auto;
     background: none;
     box-shadow: none;
-    margin-top: 30px;
+    margin-top: 5em;
 }
 
 .bekijk-meer h2 {
@@ -915,6 +994,7 @@ footer section h2 {
     color: var(--efteling-rood);
     background: var(--header-wit);
     border: 6px double var(--border-kleur);
+    align-self: start;
 }
 
 .bekijk-meer svg {
@@ -929,9 +1009,8 @@ body.dark-mode {
     background: var(--dark-mode-1);
 }
 
-/* Andere elementen in dark mode */
-nav ul li {
-    color: black;
+body.dark-mode ul li svg {
+    background: var(--dark-mode-1);
 }
 
 body.dark-mode nav ul {
@@ -951,6 +1030,131 @@ body.dark-mode nav ul li svg {
     fill: var(--achtergrond-kleur);
 }
 
+body.dark-mode ul li {
+    background: var(--dark-mode-2);
+    color: var(--header-wit);
+}
+
+body.dark-mode ul li svg {
+    fill: var(--header-wit);
+}
+
+.dark-mode .opening {
+    background: var(--dark-mode-2);
+}
+
+.dark-mode .opening h3 {
+    color: var(--dark-mode-3);
+}
+
+.dark-mode .opening p {
+    color: var(--header-wit);
+}
+
+.dark-mode .overnachten {
+    background: var(--dark-mode-2);
+}
+
+.dark-mode .overnachten h2 {
+    color: var(--dark-mode-3)
+}
+
+.dark-mode .overnachten ul li  {
+    color: var(--header-wit)
+}
+
+.dark-mode .blog-post {
+    background: var(--dark-mode-2);
+}
+
+.dark-mode .blog-post h2 {
+    color: var(--dark-mode-3)
+}
+
+.dark-mode .blog-post p {
+    color: var(--header-wit)
+}
+
+.dark-mode .blog-post a {
+    background: var(--efteling-rood);
+    border-color: var(--tweede-borderkleur);
+    color: var(--header-wit)
+}
+
+.dark-mode .slider-container article {
+    background: var(--dark-mode-2);
+}
+
+.dark-mode .slider-container h3 {
+    color: var(--dark-mode-3);
+}
+
+.dark-mode .slider-container h4 {
+    color: var(--header-wit);
+}
+
+.dark-mode .blog-main-inhoud {
+    background: var(--dark-mode-2);
+}
+
+.dark-mode .blog-main-inhoud h2 {
+    color: var(--dark-mode-3);
+}
+
+.dark-mode .blog-main-inhoud p {
+    color: var(--header-wit);
+}
+
+.dark-mode .blog-main-inhoud article p {
+    color: var(--header-wit);
+}
+
+.dark-mode .blog-main-inhoud article h2 {
+    color: var(--dark-mode-3);
+}
+
+.dark-mode .lees-meer ul li  {
+    background: var(--blog-oranje);
+}
+
+.dark-mode .bekijk-meer h2 {
+    color: var(--dark-mode-3);
+}
+
+.dark-mode .bekijk-meer p {
+    color: var(--header-wit);
+}
+
+.dark-mode .bekijk-meer a {
+    background: var(--efteling-rood);
+    border-color: var(--tweede-borderkleur);
+    color: var(--header-wit)
+}
+
+.dark-mode footer {
+    background: var(--dark-mode-2);
+}
+
+.dark-mode footer p {
+    color: var(--header-wit);
+}
+
+.dark-mode footer a {
+    color: var(--header-wit);
+}
+
+.dark-mode footer ul li a {
+    color: var(--header-wit);
+}
+
+.dark-mode footer svg {
+    fill: var(--header-wit);
+}
+
+.dark-mode footer summary {
+    color: var(--header-wit);
+}
+
 /* Scrol animatie */
 /* Verborgen standaard */
 .blog-post {
@@ -964,7 +1168,6 @@ body.dark-mode nav ul li svg {
     opacity: 1;
     transform: translateY(0); /* Terug naar originele positie */
 }
-
 
 /* Animatie h1 */
 h1 {
@@ -982,3 +1185,4 @@ h1 {
 		transform: translateY(0);
 	}
 }
+

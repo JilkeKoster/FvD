@@ -32,15 +32,16 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   <summary>uitwerken voor kick-off werkgroep</summary>
 
   ### Je opdracht:
+  Ik ga de site van de Efteling na maken.
   <a hefr="https://www.efteling.com/nl">De Efteling</a>
 
   #### Screenshot(s) van de eerste pagina (small screen): 
-  hier de naam van de pagina  
+  De homepagina van de site.
   <img src="img/homepagine_efteling.png" width="375px" alt="Homepagina van de Efteling">
 
   #### Screenshot(s) van de tweede pagina (small screen):
-  hier de naam van de pagina  
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="omschrijving van de pagina">
+  De blogpagina van de site.
+  <img src="img/blogpagina_efteling.png" width="375px" alt="omschrijving van de pagina">
  
 </details>
 

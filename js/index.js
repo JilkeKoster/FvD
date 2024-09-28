@@ -1,36 +1,5 @@
 console.log("Hallo Wereld");
 
-// Carusel
-const slider = document.querySelector('.slider-container');
-let isDown = false;
-let startX;
-let scrollLeft;
-
-slider.addEventListener('mousedown', (e) => {
-    isDown = true;
-    slider.classList.add('active');
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
-});
-
-slider.addEventListener('mouseleave', () => {
-    isDown = false;
-    slider.classList.remove('active');
-});
-
-slider.addEventListener('mouseup', () => {
-    isDown = false;
-    slider.classList.remove('active');
-});
-
-slider.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 2; // De hoeveelheid om te scrollen
-    slider.scrollLeft = scrollLeft - walk;
-});
-
 // Scrol animatie
 document.addEventListener('DOMContentLoaded', function () {
     // Selecteer alle elementen met de class 'blog-post'
@@ -51,11 +20,42 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     };
 
-    // Maak een nieuwe IntersectionObserver aan
-    const observer = new IntersectionObserver(onIntersect, options);
+// Maak een nieuwe IntersectionObserver aan
+const observer = new IntersectionObserver(onIntersect, options);
 
     // Observeer elke 'blog-post'
     blogPosts.forEach(post => {
         observer.observe(post);
+    });
+
+    // Carusel
+    const slider = document.querySelector('.slider-container');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        slider.classList.add('active');
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener('mouseleave', () => {
+        isDown = false;
+        slider.classList.remove('active');
+    });
+
+    slider.addEventListener('mouseup', () => {
+        isDown = false;
+        slider.classList.remove('active');
+    });
+
+    slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2; // De hoeveelheid om te scrollen
+        slider.scrollLeft = scrollLeft - walk;
     });
 });
